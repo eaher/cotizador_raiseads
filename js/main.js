@@ -15,9 +15,13 @@ function calcularMontos() {
 
     // Calcular los montos para cada fila
     const montoGrafica = calcularMonto('cantidad-grafica', 'precio-unitario-grafica', 'monto-grafica');
+
     const montoReel = calcularMonto('cantidad-reel', 'precio-unitario-reel', 'monto-reel');
+
     const montoInfluencer = calcularMonto('cantidad-influencer', 'precio-unitario-influencer', 'monto-influencer');
+
     const montoLocutora = calcularMonto('cantidad-locutora', 'precio-unitario-locutora', 'monto-locutora');
+
 
     return { montoGrafica, montoReel, montoInfluencer, montoLocutora };
 }
@@ -30,16 +34,23 @@ function calcularRaiseAds() {
     // Obtener los montos calculados
     const { montoGrafica, montoReel, montoInfluencer, montoLocutora } = calcularMontos();
 
+
     // Suma total de los montos
     const sumaMontos = montoGrafica + montoReel + montoInfluencer + montoLocutora;
 
+
     // Cálculo de inversión con la fórmula proporcionada
-    const inversion = paqueteContratado + fee + sumaMontos / 0.75;
+    const inversion = paqueteContratado + fee + (sumaMontos / 0.67);
 
     document.getElementById('inversion-raiseads').innerText = formatearValorFinanciero(inversion);
 
     // Mostrar el cálculo de la fórmula en la fila correspondiente
-    const formulaCalculada = (sumaMontos / 0.75);
+    const formulaCalculada = (sumaMontos / 0.67);
+
+    // Muestra el resultado de 'formulaCalculada' en la consola
+
+
+
     document.getElementById('calculo-formula').innerText = formatearValorFinanciero(formulaCalculada);
 
     const saldoPublicitarioARS = paqueteContratado * 0.5; // Saldo Publicitario ARS (Oculto)
