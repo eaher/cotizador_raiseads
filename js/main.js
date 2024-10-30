@@ -40,7 +40,8 @@ function calcularRaiseAds() {
 
 
     // Cálculo de inversión con la fórmula proporcionada
-    const inversion = paqueteContratado + fee + (sumaMontos / 0.67);
+    const inversion = Math.ceil(paqueteContratado + fee + (sumaMontos / 0.67));
+
 
     document.getElementById('inversion-raiseads').innerText = formatearValorFinanciero(inversion);
 
