@@ -32,7 +32,7 @@
                                 <th>Campo</th>
                                 <th>Cantidad</th>
                                 <th>Precio Unitario</th>
-                                <th>Monto</th>
+                              
                             </tr>
                         </thead>
                         <tbody>
@@ -49,40 +49,52 @@
                                 <td>Gráfica</td>
                                 <td><input type="number" id="cantidad-grafica" class="form-control"></td>
                                 <td><input type="number" id="precio-unitario-grafica" class="form-control"></td>
-                                <td id="monto-grafica" style="display: none;"></td> <!-- Ocultar columna Monto -->
+                                <!-- Ocultar columna Monto -->
+                                <td id="monto-grafica" style="display: none;"></td>
                             </tr>
                             <tr>
                                 <td>Reel</td>
                                 <td><input type="number" id="cantidad-reel" class="form-control"></td>
                                 <td><input type="number" id="precio-unitario-reel" class="form-control"></td>
-                                <td id="monto-reel" style="display: none;"></td> <!-- Ocultar columna Monto -->
+                                <!-- Ocultar columna Monto -->
+                                <td id="monto-reel" style="display: none;"></td>
                             </tr>
                             <tr>
                                 <td>Influencer</td>
                                 <td><input type="number" id="cantidad-influencer" class="form-control"></td>
                                 <td><input type="number" id="precio-unitario-influencer" class="form-control"></td>
-                                <td id="monto-influencer" style="display: none;"></td> <!-- Ocultar columna Monto -->
+                                <!-- Ocultar columna Monto -->
+                                <td id="monto-influencer" style="display: none;"></td>
                             </tr>
                             <tr>
                                 <td>Locutora</td>
                                 <td><input type="number" id="cantidad-locutora" class="form-control"></td>
                                 <td><input type="number" id="precio-unitario-locutora" class="form-control"></td>
-                                <td id="monto-locutora" style="display: none;"></td> <!-- Ocultar columna Monto -->
+                                <!-- Ocultar columna Monto -->
+                                <td id="monto-locutora" style="display: none;"></td>
                             </tr>
 
-                            <!-- Nueva Fila con la fórmula -->
+                            <!-- La fila de 'Total + Imp' ahora ocupa 2 celdas en 1 <td> -->
+                                <tr>
+                                    <td>Total + Imp</td>
+                                    <!-- Unimos las columnas restantes en una sola celda con colspan="2" -->
+                                    <td colspan="2" id="total-mas-impuestos"></td>
+                                </tr>
+
+                            <!-- Fila con la fórmula (oculta) -->
                             <tr style="display: none;">
                                 <td>Cálculo Fórmula</td>
                                 <td colspan="3" id="calculo-formula"></td>
                             </tr>
-                            <!-- Campos calculados -->
+                            <!-- Campos calculados (ocultos) -->
                             <tr style="display: none;">
                                 <td>Saldo Publicitario ARS</td>
                                 <td colspan="3" id="saldo-publicitario-ars"></td>
                             </tr>
                             <tr>
                                 <td>Cotización USD</td>
-                                <td colspan="3"><input type="number" id="cotizacion-usd-raiseads" class="form-control">
+                                <td colspan="3">
+                                    <input type="number" id="cotizacion-usd-raiseads" class="form-control">
                                 </td>
                             </tr>
                             <tr>
@@ -91,8 +103,9 @@
                             </tr>
                             <tr>
                                 <td>Duración Campaña (Días)</td>
-                                <td colspan="3"><input type="number" id="duracion-campania-raiseads"
-                                        class="form-control"></td>
+                                <td colspan="3">
+                                    <input type="number" id="duracion-campania-raiseads" class="form-control">
+                                </td>
                             </tr>
                             <tr>
                                 <td>Saldo Publi USD/Día</td>
@@ -100,7 +113,9 @@
                             </tr>
                             <tr>
                                 <td>Costo Lead</td>
-                                <td colspan="3"><input type="number" id="costo-lead-raiseads" class="form-control"></td>
+                                <td colspan="3">
+                                    <input type="number" id="costo-lead-raiseads" class="form-control">
+                                </td>
                             </tr>
                             <tr>
                                 <td>Leads Proyectados</td>
@@ -108,7 +123,9 @@
                             </tr>
                             <tr>
                                 <td>Conversión %</td>
-                                <td colspan="3"><input type="number" id="conversion-raiseads" class="form-control"></td>
+                                <td colspan="3">
+                                    <input type="number" id="conversion-raiseads" class="form-control">
+                                </td>
                             </tr>
                             <tr>
                                 <td>Cantidad de Ventas</td>
@@ -116,12 +133,14 @@
                             </tr>
                             <tr>
                                 <td>Ticket Promedio</td>
-                                <td colspan="3"><input type="number" id="ticket-promedio-raiseads" class="form-control">
+                                <td colspan="3">
+                                    <input type="number" id="ticket-promedio-raiseads" class="form-control">
                                 </td>
                             </tr>
                             <tr>
                                 <td>% Ganancia Bruta</td>
-                                <td colspan="3"><input type="number" id="ganancia-bruta-raiseads" class="form-control">
+                                <td colspan="3">
+                                    <input type="number" id="ganancia-bruta-raiseads" class="form-control">
                                 </td>
                             </tr>
                             <tr>
@@ -169,8 +188,9 @@
                             </tr>
                             <tr>
                                 <td>Cotización USD</td>
-                                <td><input type="number" id="cotizacion-usd-servicio-actual" class="form-control"
-                                        readonly></td>
+                                <td>
+                                    <input type="number" id="cotizacion-usd-servicio-actual" class="form-control" readonly>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Saldo USD</td>
@@ -178,8 +198,9 @@
                             </tr>
                             <tr>
                                 <td>Duración Campaña (Días)</td>
-                                <td><input type="number" id="duracion-campania-servicio-actual" class="form-control"
-                                        readonly></td>
+                                <td>
+                                    <input type="number" id="duracion-campania-servicio-actual" class="form-control" readonly>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Cantidad de Leads</td>
@@ -191,7 +212,8 @@
                             </tr>
                             <tr>
                                 <td>Conversión (%)</td>
-                                <td><input type="number" id="conversion-servicio-actual" class="form-control" readonly>
+                                <td>
+                                    <input type="number" id="conversion-servicio-actual" class="form-control" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -200,19 +222,20 @@
                             </tr>
                             <tr>
                                 <td>Ticket Promedio</td>
-                                <td><input type="number" id="ticket-promedio-servicio-actual" class="form-control"
-                                        readonly></td>
+                                <td>
+                                    <input type="number" id="ticket-promedio-servicio-actual" class="form-control" readonly>
+                                </td>
                             </tr>
                             <tr>
                                 <td>% Ganancia Bruta</td>
-                                <td><input type="number" id="ganancia-bruta-servicio-actual" class="form-control"
-                                        readonly></td>
+                                <td>
+                                    <input type="number" id="ganancia-bruta-servicio-actual" class="form-control" readonly>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Ganancia Proyectada</td>
                                 <td id="ganancia-proyectada-servicio-actual"></td>
                             </tr>
-
                             <tr>
                                 <td>Ingresos Totales</td>
                                 <td id="ingresos-totales-servicio-actual"></td>

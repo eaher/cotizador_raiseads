@@ -3,25 +3,36 @@ function formatearValorFinanciero(valor) {
     return valor.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
+
 // Función para calcular los montos de cada ítem (Gráfica, Reel, etc.)
 function calcularMontos() {
-    const calcularMonto = (cantidadId, precioId, montoId) => {
+    const calcularMonto = (cantidadId, precioId) => {
         const cantidad = parseFloat(document.getElementById(cantidadId).value) || 0;
         const precioUnitario = parseFloat(document.getElementById(precioId).value) || 0;
-        const monto = cantidad * precioUnitario;
-        document.getElementById(montoId).innerText = formatearValorFinanciero(monto);
-        return monto;
+        return cantidad * precioUnitario;
     };
 
-    // Calcular los montos para cada fila
-    const montoGrafica = calcularMonto('cantidad-grafica', 'precio-unitario-grafica', 'monto-grafica');
+    // Calcular los montos individuales
+    const montoGrafica = calcularMonto('cantidad-grafica', 'precio-unitario-grafica');
+    const montoReel = calcularMonto('cantidad-reel', 'precio-unitario-reel');
+    const montoInfluencer = calcularMonto('cantidad-influencer', 'precio-unitario-influencer');
+    const montoLocutora = calcularMonto('cantidad-locutora', 'precio-unitario-locutora');
 
-    const montoReel = calcularMonto('cantidad-reel', 'precio-unitario-reel', 'monto-reel');
+    // Calcular la suma total de los montos
+    const sumaMontos = montoGrafica + montoReel + montoInfluencer + montoLocutora;
 
-    const montoInfluencer = calcularMonto('cantidad-influencer', 'precio-unitario-influencer', 'monto-influencer');
+    // Aplicar la fórmula (sumaMontos / 0.67) a las celdas de monto
+    const montoFinal = Math.ceil(sumaMontos / 0.67);
 
-    const montoLocutora = calcularMonto('cantidad-locutora', 'precio-unitario-locutora', 'monto-locutora');
+    // Muestra (sumaMontos / 0.67) en la celda #total-mas-impuestos
+    document.getElementById('total-mas-impuestos').innerText = formatearValorFinanciero(montoFinal);
 
+
+    // Asignar los valores modificados a las celdas de monto
+    document.getElementById('monto-grafica').innerText = formatearValorFinanciero(montoFinal);
+    document.getElementById('monto-reel').innerText = formatearValorFinanciero(montoFinal);
+    document.getElementById('monto-influencer').innerText = formatearValorFinanciero(montoFinal);
+    document.getElementById('monto-locutora').innerText = formatearValorFinanciero(montoFinal);
 
     return { montoGrafica, montoReel, montoInfluencer, montoLocutora };
 }
