@@ -21,10 +21,10 @@ function calcularMontos() {
     // Calcular la suma total de los montos
     const sumaMontos = montoGrafica + montoReel + montoInfluencer + montoLocutora;
 
-    // Aplicar la fórmula (sumaMontos / 0.67) a las celdas de monto
-    const montoFinal = Math.ceil(sumaMontos / 0.67);
+    // Aplicar la fórmula (sumaMontos / 0.78) a las celdas de monto
+    const montoFinal = Math.ceil(sumaMontos / 0.78);
 
-    // Muestra (sumaMontos / 0.67) en la celda #total-mas-impuestos
+    // Muestra (sumaMontos / 0.78) en la celda #total-mas-impuestos
     document.getElementById('total-mas-impuestos').innerText = formatearValorFinanciero(montoFinal);
 
 
@@ -51,13 +51,13 @@ function calcularRaiseAds() {
 
 
     // Cálculo de inversión con la fórmula proporcionada
-    const inversion = Math.ceil(paqueteContratado + fee + (sumaMontos / 0.67));
+    const inversion = Math.ceil(paqueteContratado + fee + (sumaMontos / 0.78));
 
 
     document.getElementById('inversion-raiseads').innerText = formatearValorFinanciero(inversion);
 
     // Mostrar el cálculo de la fórmula en la fila correspondiente
-    const formulaCalculada = (sumaMontos / 0.67);
+    const formulaCalculada = (sumaMontos / 0.78);
 
     // Muestra el resultado de 'formulaCalculada' en la consola
 
